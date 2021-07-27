@@ -16,6 +16,7 @@ type resolveMapItem struct {
 
 var resolveTable = make([]byte, 256)
 var resolveMap = make(map[string]resolveMapItem)
+var Empty = ""
 
 func init() {
 	t := resolveTable
@@ -40,7 +41,7 @@ func init() {
 		{false, yaml_BOOL_TAG, []string{"n", "N", "no", "No", "NO"}},
 		{false, yaml_BOOL_TAG, []string{"false", "False", "FALSE"}},
 		{false, yaml_BOOL_TAG, []string{"off", "Off", "OFF"}},
-		{nil, yaml_NULL_TAG, []string{"", "~", "null", "Null", "NULL"}},
+		{nil, yaml_NULL_TAG, []string{Empty, "~", "null", "Null", "NULL"}},
 		{math.NaN(), yaml_FLOAT_TAG, []string{".nan", ".NaN", ".NAN"}},
 		{math.Inf(+1), yaml_FLOAT_TAG, []string{".inf", ".Inf", ".INF"}},
 		{math.Inf(+1), yaml_FLOAT_TAG, []string{"+.inf", "+.Inf", "+.INF"}},
